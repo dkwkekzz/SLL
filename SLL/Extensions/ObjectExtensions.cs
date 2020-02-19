@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SLL.Extensions
 {
-	public static class Object
+	public static class ObjectExtensions
     {
         public static object DeepClone(this object org)
         {

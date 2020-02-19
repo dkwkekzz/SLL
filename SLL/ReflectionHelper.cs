@@ -80,5 +80,6 @@ namespace SLL
             var call = Expression.Call(Expression.Constant(instance), method, parameters);
             return Expression.Lambda(call, parameters).Compile();
         }
+
     }
 }
