@@ -9,4 +9,8 @@
     <OutputPath>../Output</OutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Manage\" />
+  </ItemGroup>
+
 </Project>
