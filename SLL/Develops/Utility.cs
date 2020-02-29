@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SLL
+namespace SLL.Develops
 {
-    public static class Utils
+    public static class Utility
     {
         public static TimeSpan MeasureTime(Action action, int loop = 1)
         {

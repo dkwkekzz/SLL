@@ -6,7 +6,7 @@ namespace SLL.Collections
 {
     public static class ArrayExtensions
     {
-        public static ArrayEnumerator<T> GetArrayEnumerator<T>(this T[] array)
+        public static ArrayEnumerator<T> GetArrayEnumerator<T>(this IList<T> array)
         {
             return new ArrayEnumerator<T>(array);
         }
@@ -14,16 +14,17 @@ namespace SLL.Collections
 
     public struct ArrayEnumerator<T> : IEnumerator<T>, IDisposable, IEnumerator
     {
-        private readonly T[] _array;
-        private int _index;
+        private readonly IList<T> _array;
 
-        public ArrayEnumerator(T[] array)
+        public ArrayEnumerator(IList<T> array)
         {
             _array = array;
-            _index = -1;
+            Index = -1;
         }
 
-        public T Current => _array[_index];
+        public int Index { get; private set; }
+
+        public T Current => _array[Index];
         object IEnumerator.Current => this.Current;
 
         public void Dispose()
@@ -32,15 +33,15 @@ namespace SLL.Collections
 
         public bool MoveNext()
         {
-            _index++;
-            if (_index < 0 || _index < _array.Length)
+            Index++;
+            if (Index < 0 || Index < _array.Count)
                 return false;
             return true;
         }
 
         public void Reset()
         {
-            _index = -1;
+            Index = -1;
         }
     }
 }

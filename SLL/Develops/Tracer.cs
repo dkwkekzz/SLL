@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace SLL
+namespace SLL.Develops
 {
     internal class TextTraceListner : TraceListener
     {

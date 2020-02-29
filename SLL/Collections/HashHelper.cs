@@ -80,7 +80,7 @@ namespace SLL.Collections
             // Note that this check works even when _items.Length overflowed thanks to the (uint) cast
             if ((uint)newSize > MaxPrimeArrayLength && MaxPrimeArrayLength > oldSize)
             {
-                Tracer.Assert(MaxPrimeArrayLength == GetPrime(MaxPrimeArrayLength), "Invalid MaxPrimeArrayLength");
+                Develops.Tracer.Assert(MaxPrimeArrayLength == GetPrime(MaxPrimeArrayLength), "Invalid MaxPrimeArrayLength");
                 return MaxPrimeArrayLength;
             }
 

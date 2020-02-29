@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Threading;
+using SLL.Extensions;
+using SLL.Collections;
 
 namespace Test
 {
-	class TestSplayBT
+    class TestSplayBT
     {
         public static void Run()
         {
@@ -90,6 +92,58 @@ namespace Test
             Console.WriteLine("remove: 33");
             tree.Remove(33);
             Console.WriteLine(tree.ToString());
+        }
+    }
+
+    class TestStringExt
+	{
+		enum EPower
+		{
+			A,
+			B,
+			C,
+			D
+		}
+
+		public static void Run()
+		{
+			SLL.Develops.Tracer.Assert(DateTime.Parse("2013-12-05") == "2013-12-05".ToDate());
+			Console.WriteLine("울트라파워".Reverse());
+			Console.WriteLine("And the test methods".GetLast(6));
+			Console.WriteLine(" 9893330".IsNumeric());
+			Console.WriteLine("3330".IsNumeric());
+			Console.WriteLine("3330".ExtractNumber());
+			Console.WriteLine(" 9893330".ExtractNumber());
+			Console.WriteLine(" adfaf9893330asdfasf".ExtractNumber());
+			Console.WriteLine(" adfaf9893330asd33fasf".ExtractNumber());
+
+			EPower.A.Has(EPower.B);
+		}
+	}
+
+    class TestStaticInit
+    {
+        /// <summary>
+        /// 정적 생성자를 선언하면 프로그램이 시작할때 호출되므로 해당 객체를 만들 수 밖에 없다.
+        /// 하지만 선언하지 않으면 BeforeFieldInit속성을 추가하여 최대한 지연하여 객체를 생성한다. 
+        /// 즉, 정적 객체 혹은 함수에 접근하기 전까지는 생성하지 않는다.
+        /// </summary>
+        public static void Run()
+        {
+            var a1 = new int[5];
+            var iter = a1.GetArrayEnumerator();
+
+            var ticker = new SLL.Manages.Ticker();
+            //Console.WriteLine($"0:{SLL.Manages.Ticker.Elapsed.ToString()}");
+
+            var centuryBegin = new DateTime(2001, 1, 1);
+            var currentDate = DateTime.Now;
+            var _startTicks = currentDate.Ticks - centuryBegin.Ticks;
+            Console.WriteLine($"1:{_startTicks.ToString()}");
+
+            Thread.Sleep(1000);
+
+            Console.WriteLine($"2:{SLL.Manages.Ticker.StartTicks.ToString()}");
         }
     }
 }
