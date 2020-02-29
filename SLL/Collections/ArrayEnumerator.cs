@@ -4,6 +4,14 @@ using System.Collections.Generic;
 
 namespace SLL.Collections
 {
+    public static class ArrayExtensions
+    {
+        public static ArrayEnumerator<T> GetArrayEnumerator<T>(this T[] array)
+        {
+            return new ArrayEnumerator<T>(array);
+        }
+    }
+
     public struct ArrayEnumerator<T> : IEnumerator<T>, IDisposable, IEnumerator
     {
         private readonly T[] _array;

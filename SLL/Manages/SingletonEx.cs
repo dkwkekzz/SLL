@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 
-namespace SLL
+namespace SLL.Manages
 {
     public class SingletonEx<T>
         where T : class, new()

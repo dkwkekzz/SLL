@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 
-namespace SLL.Manage
+namespace SLL.Manages
 {
     public class ObjectPool<TValue> where TValue : class, new()
     {

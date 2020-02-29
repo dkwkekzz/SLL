@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SLL.Manage
+namespace SLL.Manages
 {
     public abstract class PoolingObject<T> where T : PoolingObject<T>, new()
     {

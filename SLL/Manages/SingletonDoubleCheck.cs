@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace SLL
+namespace SLL.Manages
 {
     public class SingletonDoubleCheck<T> 
         where T : class, new()
