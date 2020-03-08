@@ -26,11 +26,11 @@ namespace SLL.Manages
         
         public TValue GetObject()
         {
-               TValue item;
+            TValue item;
             if (_objects.TryTake(out item))
                 return item;
             
-            return Generator();
+            return Generator?.Invoke() ?? new TValue();
         }
 
         public void PutObject(TValue item)

@@ -6,6 +6,44 @@ using SLL.Collections;
 
 namespace Test
 {
+    class TestPool
+    {
+        class Context : SLL.Manages.PoolingObject<Context>
+        {
+            public int id;
+            public string name;
+            public string description;
+        }
+
+        public static void Run()
+        {
+            var ctxlist = new List<Context>();
+            for (int i = 0; i != 10000; i++)
+            {
+                var a = Context.Create();
+                ctxlist.Add(a);
+            }
+
+            for (int i = 0; i != ctxlist.Count; i++)
+            {
+                Context.Destroy(ctxlist[i]);
+            }
+        }
+    }
+
+    class TestArray
+    {
+        public static void Run()
+        {
+            var a = new int[9999];
+            a[5] = 10;
+            if (a.TryGetSafety(1023, out int val1))
+                Console.WriteLine("found1");
+            if (a.TryGetSafety(100033, out int val2))
+                Console.WriteLine("found2");
+        }
+    }
+
     class TestSplayBT
     {
         public static void Run()
