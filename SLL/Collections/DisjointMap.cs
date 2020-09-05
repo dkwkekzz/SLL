@@ -5,7 +5,7 @@ namespace SLL.Collections
 {
     public class DisjointMap<TKey> where TKey : IEquatable<TKey>
     {
-        private struct Value
+        public struct Value
         {
             public TKey parent;
             public int rank;
@@ -26,7 +26,7 @@ namespace SLL.Collections
             _dicValue = new Dictionary<TKey, Value>(n);
         }
 
-        private Value Find(TKey key)
+        public Value Find(TKey key)
         {
             var val = _dicValue[key];
             if (val.parent.Equals(key))

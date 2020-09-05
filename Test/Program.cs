@@ -6,7 +6,7 @@ namespace Test
 	{
 		static void Main(string[] args)
 		{
-			TestPool.Run();
+			TestHeap.Run();
 		}
 	}
 }
